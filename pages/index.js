@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Slide, Typography } from "@mui/material";
 import Head from "next/head";
 import Image from "next/image";
 import Layout from "../components/layout";
@@ -9,8 +9,61 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { Box } from "@mui/system";
+import { useEffect, useRef, useState } from "react";
+
+const links = (
+  <Grid
+    item
+    container
+    direction="row"
+    justifyContent="center"
+    alignItems="center"
+    spacing={8}
+  >
+    <Grid item>
+      <Link href="https://www.linkedin.com/in/guolinyang13/">
+        <a>
+          <LinkedInIcon fontSize="large" />
+        </a>
+      </Link>
+    </Grid>
+
+    <Grid item>
+      <Link href="/CV.pdf">
+        <a>
+          <DescriptionIcon fontSize="large" />
+        </a>
+      </Link>
+    </Grid>
+
+    <Grid item>
+      <Link href="mailto:guolin.yang13@gmail.com">
+        <a>
+          <EmailIcon fontSize="large" />
+        </a>
+      </Link>
+    </Grid>
+    <Grid item>
+      <Link href="https://github.com/GuolinY">
+        <a>
+          <GitHubIcon fontSize="large" />
+        </a>
+      </Link>
+    </Grid>
+  </Grid>
+);
 
 export default function Home() {
+  const [checked, setChecked] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log("This will run after 1 second!");
+    }, 5000);
+    setChecked((prev) => !prev);
+  }, []);
+
   return (
     <Layout>
       <Typography variant="h1">Guolin Yang</Typography>
@@ -22,38 +75,15 @@ export default function Home() {
         </Link>
       </Typography>
 
-      <Box mt={2}>
-        <Grid
-          item
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          spacing={8}
+      <Box mt={2} ref={containerRef}>
+        <Slide
+          direction="right"
+          in={checked}
+          transitionDuration={9000}
+          container={containerRef.current}
         >
-          <Grid item>
-            <Link href="https://www.linkedin.com/in/guolinyang13/">
-              <LinkedInIcon fontSize="large" />
-            </Link>
-          </Grid>
-
-          <Grid item>
-            <Link href="/CV.pdf">
-              <DescriptionIcon fontSize="large" />
-            </Link>
-          </Grid>
-
-          <Grid item>
-            <Link href="mailto:guolin.yang13@gmail.com">
-              <EmailIcon fontSize="large" />
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link href="https://github.com/GuolinY">
-              <GitHubIcon fontSize="large" />
-            </Link>
-          </Grid>
-        </Grid>
+          {links}
+        </Slide>
       </Box>
     </Layout>
   );
