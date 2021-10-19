@@ -52,20 +52,21 @@ const links = (
 );
 
 export default function Home() {
-  const [checked1, setChecked1] = useState(false);
-  const [checked2, setChecked2] = useState(false);
-  const [checked3, setChecked3] = useState(false);
+  // States for each components transition
+  const [transitionName, setTransitionName] = useState(false);
+  const [transitionIntro, setTransitionIntro] = useState(false);
+  const [transitionLinks, setTransitionLinks] = useState(false);
   const containerRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => {
-      setChecked1((prev) => !prev);
+      setTransitionName((prev) => !prev);
     }, 500);
     setTimeout(() => {
-      setChecked2((prev) => !prev);
+      setTransitionIntro((prev) => !prev);
     }, 1000);
     setTimeout(() => {
-      setChecked3((prev) => !prev);
+      setTransitionLinks((prev) => !prev);
     }, 1500);
   }, []);
 
@@ -73,16 +74,14 @@ export default function Home() {
     <Layout ref={containerRef}>
       <Slide
         direction="down"
-        in={checked1}
-        transitionDuration={9000}
+        in={transitionName}
         container={containerRef.current}
       >
         <Typography variant="h1">Guolin Yang</Typography>
       </Slide>
       <Slide
         direction="right"
-        in={checked2}
-        transitionDuration={9000}
+        in={transitionIntro}
         container={containerRef.current}
       >
         <Typography variant="h6">
@@ -96,8 +95,7 @@ export default function Home() {
       <Box mt={2}>
         <Slide
           direction="up"
-          in={checked3}
-          transitionDuration={9000}
+          in={transitionLinks}
           container={containerRef.current}
         >
           {links}
