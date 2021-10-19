@@ -71,7 +71,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout ref={containerRef}>
+    <Layout>
       <Slide
         direction="down"
         in={transitionName}
