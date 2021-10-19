@@ -52,31 +52,51 @@ const links = (
 );
 
 export default function Home() {
-  const [checked, setChecked] = useState(false);
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+  const [checked3, setChecked3] = useState(false);
   const containerRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => {
-      console.log("This will run after 1 second!");
-    }, 5000);
-    setChecked((prev) => !prev);
+      setChecked1((prev) => !prev);
+    }, 500);
+    setTimeout(() => {
+      setChecked2((prev) => !prev);
+    }, 1000);
+    setTimeout(() => {
+      setChecked3((prev) => !prev);
+    }, 1500);
   }, []);
 
   return (
-    <Layout>
-      <Typography variant="h1">Guolin Yang</Typography>
+    <Layout ref={containerRef}>
+      <Slide
+        direction="down"
+        in={checked1}
+        transitionDuration={9000}
+        container={containerRef.current}
+      >
+        <Typography variant="h1">Guolin Yang</Typography>
+      </Slide>
+      <Slide
+        direction="right"
+        in={checked2}
+        transitionDuration={9000}
+        container={containerRef.current}
+      >
+        <Typography variant="h6">
+          I'm a third year computing student at{" "}
+          <Link href="https://www.imperial.ac.uk/">
+            <a>Imperial College London.</a>
+          </Link>
+        </Typography>
+      </Slide>
 
-      <Typography variant="h6">
-        I'm a third year computing student at{" "}
-        <Link href="https://www.imperial.ac.uk/">
-          <a>Imperial College London.</a>
-        </Link>
-      </Typography>
-
-      <Box mt={2} ref={containerRef}>
+      <Box mt={2}>
         <Slide
-          direction="right"
-          in={checked}
+          direction="up"
+          in={checked3}
           transitionDuration={9000}
           container={containerRef.current}
         >
