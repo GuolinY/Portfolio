@@ -56,7 +56,6 @@ export default function Home() {
   const [transitionName, setTransitionName] = useState(false);
   const [transitionIntro, setTransitionIntro] = useState(false);
   const [transitionLinks, setTransitionLinks] = useState(false);
-  const containerRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -71,36 +70,26 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout>
-      <Slide
-        direction="down"
-        in={transitionName}
-        container={containerRef.current}
-      >
-        <Typography variant="h1">Guolin Yang</Typography>
-      </Slide>
-      <Slide
-        direction="right"
-        in={transitionIntro}
-        container={containerRef.current}
-      >
-        <Typography variant="h6">
-          I'm a third year computing student at{" "}
-          <Link href="https://www.imperial.ac.uk/">
-            <a>Imperial College London.</a>
-          </Link>
-        </Typography>
-      </Slide>
-
-      <Box mt={2}>
-        <Slide
-          direction="up"
-          in={transitionLinks}
-          container={containerRef.current}
-        >
-          {links}
+    <div style={{ overflow: "hidden" }}>
+      <Layout>
+        <Slide direction="down" in={transitionName}>
+          <Typography variant="h1">Guolin Yang</Typography>
         </Slide>
-      </Box>
-    </Layout>
+        <Slide direction="right" in={transitionIntro}>
+          <Typography variant="h6">
+            I'm a third year computing student at{" "}
+            <Link href="https://www.imperial.ac.uk/">
+              <a>Imperial College London.</a>
+            </Link>
+          </Typography>
+        </Slide>
+
+        <Box mt={2}>
+          <Slide direction="up" in={transitionLinks}>
+            {links}
+          </Slide>
+        </Box>
+      </Layout>
+    </div>
   );
 }
