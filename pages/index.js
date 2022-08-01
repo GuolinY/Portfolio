@@ -1,13 +1,15 @@
-import { Grid, Slide, Typography } from "@mui/material";
+import { Grid, Slide, Tooltip, Typography } from "@mui/material";
 import Layout from "../components/layout";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
+import Head from "next/head";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DescriptionIcon from "@mui/icons-material/Description";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { Box } from "@mui/system";
 import { useEffect, useRef, useState } from "react";
+import Zoom from "@mui/material/Zoom";
 
 const links = (
   <Grid
@@ -21,7 +23,9 @@ const links = (
     <Grid item>
       <Link href="https://www.linkedin.com/in/guolinyang13/">
         <a>
-          <LinkedInIcon fontSize="large" />
+          <Tooltip TransitionComponent={Zoom} title="LinkedIn">
+            <LinkedInIcon fontSize="large" />
+          </Tooltip>
         </a>
       </Link>
     </Grid>
@@ -29,7 +33,9 @@ const links = (
     <Grid item>
       <Link href="/CV.pdf">
         <a>
-          <DescriptionIcon fontSize="large" />
+          <Tooltip TransitionComponent={Zoom} title="CV">
+            <DescriptionIcon fontSize="large" />
+          </Tooltip>
         </a>
       </Link>
     </Grid>
@@ -37,14 +43,18 @@ const links = (
     <Grid item>
       <Link href="mailto:guolin.yang13@gmail.com">
         <a>
-          <EmailIcon fontSize="large" />
+          <Tooltip TransitionComponent={Zoom} title="Email">
+            <EmailIcon fontSize="large" />
+          </Tooltip>
         </a>
       </Link>
     </Grid>
     <Grid item>
       <Link href="https://github.com/GuolinY">
         <a>
-          <GitHubIcon fontSize="large" />
+          <Tooltip TransitionComponent={Zoom} title="GitHub">
+            <GitHubIcon fontSize="large" />
+          </Tooltip>
         </a>
       </Link>
     </Grid>
@@ -56,7 +66,6 @@ export default function Home() {
   const [transitionName, setTransitionName] = useState(false);
   const [transitionIntro, setTransitionIntro] = useState(false);
   const [transitionLinks, setTransitionLinks] = useState(false);
-  const containerRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -71,36 +80,30 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout>
-      <Slide
-        direction="down"
-        in={transitionName}
-        container={containerRef.current}
-      >
-        <Typography variant="h1">Guolin Yang</Typography>
-      </Slide>
-      <Slide
-        direction="right"
-        in={transitionIntro}
-        container={containerRef.current}
-      >
-        <Typography variant="h6">
-          I'm a third year computing student at{" "}
-          <Link href="https://www.imperial.ac.uk/">
-            <a>Imperial College London.</a>
-          </Link>
-        </Typography>
-      </Slide>
+    <div style={{ overflow: "hidden" }}>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@100&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <Layout>
+        <Slide direction="down" in={transitionName}>
+          <Typography variant="h1">Guolin Yang</Typography>
+        </Slide>
+        <Slide direction="right" in={transitionIntro}>
+          <Typography variant="h6" mb={3}>
+            I'm a third year computing student at{" "}
+            <Link href="https://www.imperial.ac.uk/">
+              <a>Imperial College London.</a>
+            </Link>
+          </Typography>
+        </Slide>
 
-      <Box mt={2}>
-        <Slide
-          direction="up"
-          in={transitionLinks}
-          container={containerRef.current}
-        >
+        <Slide direction="up" in={transitionLinks}>
           {links}
         </Slide>
-      </Box>
-    </Layout>
+      </Layout>
+    </div>
   );
 }
