@@ -81,19 +81,13 @@ export default function Home() {
 
   return (
     <div style={{ overflow: "hidden" }}>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@100&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <Layout>
         <Slide direction="down" in={transitionName}>
           <Typography variant="h1">Guolin Yang</Typography>
         </Slide>
         <Slide direction="right" in={transitionIntro}>
           <Typography variant="h6" mb={3}>
-            I'm a third year computing student at{" "}
+            I&apos;m a third year computing student at{" "}
             <Link href="https://www.imperial.ac.uk/">
               <a>Imperial College London.</a>
             </Link>

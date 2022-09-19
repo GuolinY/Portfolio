@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   typography: {
-    fontFamily: ["Cutive Mono"].join(","),
+    fontFamily: ["Cutive Mono", "Bungee Spice"].join(","),
   },
 });
 
