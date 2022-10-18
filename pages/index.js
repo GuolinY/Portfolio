@@ -77,6 +77,7 @@ export default function Home() {
     setTimeout(() => {
       setTransitionLinks((prev) => !prev);
     }, 1500);
+    ("");
   }, []);
 
   return (
@@ -87,7 +88,7 @@ export default function Home() {
         </Slide>
         <Slide direction="right" in={transitionIntro}>
           <Typography variant="h6" mb={3}>
-            I&apos;m a third year computing student at{" "}
+            I&apos;m a final year computing student at{" "}
             <Link href="https://www.imperial.ac.uk/">
               <a>Imperial College London.</a>
             </Link>
