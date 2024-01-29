@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/favicon.ico" />
+    <link href="../static/output.css" rel="stylesheet" type="text/css" />
+    <title>{{.Name}}</title>
+  </head>
+  <body class="flex flex-col items-center justify-center min-h-screen">
+    <div class="p-4">
+      <h1 class="font-sixtyfour text-center text-5xl">{{.Name}}</h1>
+    </div>
+
+    <div class="p-4">
+      <h3 class="text-center font-sixtyfour">I'm a {{.Job}} at {{.Company}}</h3>
+    </div>
+
+    <div class="flex space-x-4">
+      <div class="icon-container">
+        <a href="https://www.linkedin.com/in/guolinyang13/">
+          <div class="p-4 bg-white rounded-full shadow-md">
+            <svg
+              class="h-8 w-8 text-black"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </div>
+          <div class="hover-text">LinkedIn</div>
+        </a>
+      </div>
+
+      <div class="icon-container">
+        <a href="mailto:guolin.yang13@gmail.com">
+          <div class="p-4 bg-white rounded-full shadow-md">
+            <svg
+              class="h-8 w-8 text-black"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <polyline points="3 7 12 13 21 7" />
+            </svg>
+          </div>
+          <div class="hover-text">Email</div>
+        </a>
+      </div>
+
+      <div class="icon-container">
+        <a href="https://github.com/GuolinY">
+          <div class="p-4 bg-white rounded-full shadow-md">
+            <svg
+              class="h-8 w-8 text-black"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+          </div>
+          <div class="hover-text">GitHub</div>
+        </a>
+      </div>
+
+      <div class="icon-container">
+        <a href="/static/CV.pdf">
+          <div class="p-4 bg-white rounded-full shadow-md">
+            <svg
+              class="h-8 w-8 text-black"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+          </div>
+          <div class="hover-text">CV</div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

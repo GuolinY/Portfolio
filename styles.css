@@ -1,0 +1,30 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+
+.icon-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.hover-text {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, 250%);
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    white-space: nowrap; /* Ensure text stays on one line */
+}
+
+.icon-container:hover .hover-text {
+    opacity: 1;
+}
