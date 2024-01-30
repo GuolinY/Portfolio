@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/static/favicon.ico" />
@@ -12,10 +17,11 @@
       <h1 class="font-sixtyfour text-center text-5xl">{{.Name}}</h1>
     </div>
 
-    <div class="p-4">
+    <div class="font-sixtyfour p-4">
       <h3 class="text-center font-sixtyfour">I'm a {{.Job}} at {{.Company}}</h3>
     </div>
 
+    <!-- buttons -->
     <div class="flex space-x-4">
       <div class="icon-container">
         <a href="https://www.linkedin.com/in/guolinyang13/">
