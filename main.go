@@ -1,23 +1,25 @@
 package main
 
 import (
-	"html/template"
 	"net/http"
 	"portfolio/api"
+
+	"github.com/gin-gonic/gin"
 )
 
 const port string = "8000"
 
-func HandleIndex(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("templates/index.html"))
-	tmpl.Execute(w, api.User)
-}
-
 func main() {
-	go api.StartAPI(8001)
+	r := gin.Default()
+	api.StartAPI(r)
 	// Set up handlers
-	http.HandleFunc("/", HandleIndex)
-	// Serve static files from the "/static" directory
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-	http.ListenAndServe(":"+port, nil)
+
+	r.Static("/static", "./static")
+	r.LoadHTMLGlob("templates/*")
+
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", api.User)
+	})
+
+	r.Run(":" + port)
 }

@@ -21,4 +21,7 @@ clean:
 	$(GOCLEAN)
 	rm -f $(BINARY_NAME)
 
-.PHONY: all build test clean
+docker:
+	docker run -p 8000:8000 -p 8001:8001 portfolio
+
+.PHONY: all build test clean docker dev

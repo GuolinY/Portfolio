@@ -1,7 +1,6 @@
 package api
 
 import (
-	"fmt"
 	"path/filepath"
 
 	"github.com/gin-gonic/gin"
@@ -23,19 +22,11 @@ var User = Profile{
 const apiToken = "your_secret_token"
 
 // StartAPI initializes and starts the API server using Gin
-func StartAPI(port int) error {
-	r := gin.Default()
-
-	r.Use(authMiddleware)
-
+func StartAPI(r *gin.Engine) {
 	// Define your API routes here
-	r.PATCH("/profile", profileHandler)
-	r.PUT("/cv", cvHandler)
-
-	// Start the server
-	addr := fmt.Sprintf(":%d", port)
-	fmt.Printf("Server listening on %s\n", addr)
-	return r.Run(addr)
+	update := r.Group("/user", authMiddleware)
+	update.PATCH("/profile", profileHandler)
+	update.PUT("/cv", cvHandler)
 }
 
 func authMiddleware(c *gin.Context) {
