@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sixtyfour: ["Sixtyfour"],
+        // sixtyfour: ["Sixtyfour"],
+        cuteFont: ["Cute Font"],
+        anton: ["Anton"],
       },
     },
   },
